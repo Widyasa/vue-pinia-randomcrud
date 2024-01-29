@@ -70,8 +70,8 @@ showFormListing()
       </thead>
       <tbody>
 
-      <tr v-for="subject in subjectList" :key="subject.id">
-        <td>{{ subject.id }}</td>
+      <tr v-for="(subject, index) in subjectList" :key="subject.id">
+        <td>{{ index+1 }}</td>
         <td>{{ subject.name }}</td>
         <td>
           <button>edit</button>
