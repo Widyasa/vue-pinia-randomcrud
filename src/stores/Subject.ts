@@ -7,6 +7,7 @@ import {apiUrl} from "@/global";
 
 
 export interface Subject {
+    id: number
     name:string
 }
 

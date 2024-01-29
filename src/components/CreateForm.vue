@@ -22,7 +22,6 @@
       console.error(error.message)
     }
   }
-  console.log()
 </script>
 
 <template>

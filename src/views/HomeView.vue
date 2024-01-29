@@ -5,6 +5,7 @@ import {subjectApiStore, useSubjectStore} from "@/stores/Subject";
 import {storeToRefs} from "pinia";
 import {ref} from "vue";
 import CreateForm from '@/components/CreateForm.vue'
+import EditForm from "@/components/EditForm.vue";
 
 const {getAllSubject, deleteSubject} = useSubjectStore();
 const {subject, subjectList} = storeToRefs(useSubjectStore())
@@ -74,7 +75,7 @@ showFormListing()
         <td>{{ index+1 }}</td>
         <td>{{ subject.name }}</td>
         <td>
-          <button>edit</button>
+          <button @click="showFromEdit(subject)">edit</button>
           <button>delete</button>
         </td>
       </tr>
@@ -86,6 +87,9 @@ showFormListing()
   </template>
   <template v-if="isShowFormAdd">
   <CreateForm @list-subject="showFormListing()"></CreateForm>
+  </template>
+  <template v-if="isShowFormEdit">
+  <edit-form @list-subject="showFormListing()"></edit-form>
   </template>
 
 </template>
