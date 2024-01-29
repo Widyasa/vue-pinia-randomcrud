@@ -26,13 +26,13 @@ const showFromEdit = (obj) => {
   isShowListing.value = false
   subject.value = obj
 }
-const deleteClassroomModel = async (id:string) => {
+const deleteSubjectModel = async (id:string) => {
   isLoading.value = true
   try {
-    const response = await getAllSubject(id);
+    const response = await deleteSubject(id);
     const { data, message } = response.data
     subject.value = data
-    getAllSubject()
+    showFormListing()
     isLoading.value = false
     console.log("API Message:", message)
   } catch (error) {
@@ -76,7 +76,7 @@ showFormListing()
         <td>{{ subject.name }}</td>
         <td>
           <button @click="showFromEdit(subject)">edit</button>
-          <button>delete</button>
+          <button @click="deleteSubjectModel(subject.id)">delete</button>
         </td>
       </tr>
       </tbody>
